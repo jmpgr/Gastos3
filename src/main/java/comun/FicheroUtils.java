@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class FicheroUtils {
         if(campos[0].equals("G")){
             GastoImpl gasto = new GastoImpl();
             gasto.setConcepto(campos[1]);
-            //m.setFecha(campos[1]);
+            gasto.setFecha(LocalDate.parse(campos[2]));
             gasto.setImporte(Double.parseDouble(campos[3]));
             gasto.setIdMovimiento(campos[4]);
             final Categoria categoria = new Categoria();
@@ -27,7 +28,7 @@ public class FicheroUtils {
         } else {
             IngresoImpl ingreso = new IngresoImpl();
             ingreso.setConcepto(campos[1]);
-            //m.setFecha(campos[1]);
+            ingreso.setFecha(LocalDate.parse(campos[2]));
             ingreso.setImporte(Double.parseDouble(campos[3]));
             ingreso.setIdMovimiento(campos[4]);
             final Categoria categoria = new Categoria();
